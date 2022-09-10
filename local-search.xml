@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>java07 java泛型</title>
+    <link href="/2022/09/10/java07/"/>
+    <url>/2022/09/10/java07/</url>
+    
+    <content type="html"><![CDATA[<p>Java笔记5（泛型）</p><p>Map实现类：Properites</p><p>properties类是Hashtable的子类，该对象用于处理属性文件</p><span id="more"></span><p>Map实现类：Properites</p><p>properties类是Hashtable的子类，该对象用于处理属性文件</p><p>由于属性文件里的key、value都是字符串类型，所以Properites里的key和value都是字符串类型</p><p>存取数据时，建议使用setProperty(String key,String value)方法和getProperty(String key)方法</p><p>Iterator接口</p><p>Iterator对象称为迭代器，主要用于遍历Collection集合中的元素</p><p>所有实现了Collection接口的集合类都有一个iterator()方法，用于返回一个实现了Iterator接口的对象</p><p>Iterator仅用于遍历集合，Iterator本身并不提供承装对象的能力，如果需要创建Iterator对象，则必须有一个被迭代的集合</p><p>泛型：</p><p>JDK1.5新加入的，解决数据类型的安全性问题，其中主要原理是在类声明时通过一个标识表示类中某个属性的类型或者某个方法的返回值及参数类型，这样在类声明或实例化时只要指定好需要的具体的类型即可</p><p>泛型好处：</p><p>1可读性，可以判断集合中的内容类型；</p><p>2类型检查，避免插入非法类型；</p><p>3获取数据时不在需要强制类型转换；</p><p>4类型安全，通过知道使用泛型定义的变量的类型限制，编译器可以更有效地提高Java程序的类型安全；</p><p>5提高性能</p><p>泛型接口：</p><p>泛型接口与泛型类的定义及使用基本相同，泛型接口常被用在各种类的生产器中：</p><p>定义一个泛型接口：</p><p>public interface Generator{</p><p>public T next();</p><p>}</p><p>泛型方法：</p><p>&#x2F;&#x2F;不借助泛型类来写泛型方法 public class Demo04 {      </p><p>  public<T> T goGo(T str) {               </p><p> return str;            </p><p>}        </p><p>public &lt;K,V&gt; K gogo(K str,V aa) {    </p><p>​    return str; </p><p>}     </p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>java基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>java06 Java继承</title>
+    <link href="/2022/09/03/java06/"/>
+    <url>/2022/09/03/java06/</url>
+    
+    <content type="html"><![CDATA[<p>继承就是子<a href="https://so.csdn.net/so/search?q=%E7%B1%BB%E7%BB%A7%E6%89%BF&spm=1001.2101.3001.7020">类继承</a>父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。</p><span id="more"></span><p>继承的作用：通过继承可以快速创建新的类，实现代码的重用，提高程序的可维护性，节省大量创建新类的时间，提高开发效率和开发质量。</p><ul><li>子类不能选择性继承父类；</li><li>Java不支持多重继承，但一个类可以实现多个接口，从而克服单继承的缺点；</li><li>构造方法不会被子类继承，但可以从子类中调用父类的构造方法。</li></ul><p>继承的优点<br>继承过来的字段和方法，可以像任何其他字段和方法一样被直接使用；<br>在子类中可以声明一个与父类中同名的新字段或静态方法，从而“隐藏”父类中的字段或方法；<br>可以在子类中声明一个在父类中没有的新字段和方法；<br>可以在子类中编写一个父类当中具有相同名的新实例方法，这称为“方法重写”或“方法覆盖”；<br>可以在子类中编写一个调用父类构造方法的子类构造方法，既可以隐式地实现，也可以通过使用关键字super来实现。</p><p>package com.yunshen.demo;</p><p>public class Animal {&#x2F;&#x2F;父类 放动物共有的属性</p><pre><code class="hljs">//属性private String name;private int age;private int hp;private int sex;//构造方法public Animal() &#123;    // TODO Auto-generated constructor stub    System.out.println(&quot;这是Animal的无参构造&quot;);&#125;public Animal(String name, int age, int hp, int sex) &#123;    super();    this.name = name;    this.age = age;    this.hp = hp;    this.sex = sex;&#125;//成员方法public void eat() &#123;    System.out.println(&quot;动物吃的方法&quot;);&#125;public void sleep() &#123;    System.out.println(&quot;动物睡的方法&quot;);&#125;public void run() &#123;    System.out.println(&quot;动物跑的方法&quot;);&#125;public String getName() &#123;    return name;&#125;public void setName(String name) &#123;    this.name = name;&#125;public int getAge() &#123;    return age;&#125;public void setAge(int age) &#123;    this.age = age;&#125;public int getHp() &#123;    return hp;&#125;public void setHp(int hp) &#123;    this.hp = hp;&#125;public int getSex() &#123;    return sex;&#125;public void setSex(int sex) &#123;    this.sex = sex;&#125;@Overridepublic String toString() &#123;    return &quot;Animal [name=&quot; + name + &quot;, age=&quot; + age + &quot;, hp=&quot; + hp + &quot;, sex=&quot; + sex + &quot;]&quot;;&#125;</code></pre><p>}</p><p>package com.yunshen.demo;</p><p>public class Cat extends Animal{&#x2F;&#x2F;Cat 继承 Animal</p><pre><code class="hljs">public Cat () &#123;    System.out.println(&quot;Cat的构造方法&quot;);&#125;public void eat() &#123;    System.out.println(&quot;猫吃老鼠&quot;);&#125;</code></pre><p>}</p><p>package com.yunshen.demo;</p><p>public class Snake extends Animal {</p><pre><code class="hljs">private int sp;public Snake() &#123;    // TODO Auto-generated constructor stub&#125;public Snake(String name, int age, int hp, int sex) &#123;    // TODO Auto-generated constructor stub&#125;public void px() &#123;    System.out.println(&quot;爬行&quot;);&#125;public int getSp() &#123;    return sp;&#125;public void setSp(int sp) &#123;    this.sp = sp;&#125;</code></pre><p>}</p><p>package com.yunshen.demo;</p><p>public class Test {</p><pre><code class="hljs">public static void main(String[] args) &#123;</code></pre><p>&#x2F;&#x2F;Animal an &#x3D; new Animal();<br>&#x2F;&#x2F;an.setHp(1000);<br>&#x2F;&#x2F;an.eat();</p><pre><code class="hljs">    System.out.println(&quot;------Cat-----&quot;);    /*     *      * 构造子类对象的时候，父类的构造方法会被执行     * 如果子类也有父类一样的方法，就会使用子类自己的方法     *      */    Cat cat = new Cat();    cat.eat();    cat.setName(&quot;加菲&quot;);    System.out.println(cat.getName());        System.out.println(&quot;------Snake----&quot;);        /*     *      * 继承父类的同时，子类对象本身也可以拥有自己的属性和方法     *      */    Snake s = new Snake();    s.eat();    s.px();//自己的方法    s.getSp();//自己独有的属性    s.setHp(500);    System.out.println(s.getHp());        /*     * 总结：     * 属性：     * 如果父类有，子类没有，那么子类直接继承父类的属性，如果子类有，那么就用自己的属性     *      * 方法：     * 如果父类有方法，子类没有，那就用父类的方法，如果子类也有这个方法，，那么子类就执行自己的方法     *      * 方法的重写：     * 子类和父类的方法具有相同的名字、参数、类型及个数还有返回值也相同     *      */    &#125;</code></pre><p>}</p><p>package com.yunshen.demo;</p><p>public class Test2 {</p><pre><code class="hljs">public static void main(String[] args) &#123;        Animal animal = new Animal();    animal.setName(&quot;动物&quot;);        Animal an = new Cat();    an.eat();        Cat cat = (Cat) an;//(强制转换)向下转型，父类转成子类    cat.eat();&#125;</code></pre><p>}</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>java基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>java05 java快速生成无参与有参构造，快速构建get和set</title>
+    <link href="/2022/08/31/java05/"/>
+    <url>/2022/08/31/java05/</url>
+    
+    <content type="html"><![CDATA[<p>Tostring的使用：</p><p>在需要使用tostring的实体类里面的空白处右键-找到source-找到Generate toString-选择所以属性，点击 Gennerate即可</p><span id="more"></span><p>快速生成无参与有参构造</p><p>无参：右键–source–generate constructors form Superclass–点击generated</p><p><img src="/../imgs/java05/c9abbcffdcca49c4bfab2480d254dc2e.jpeg" alt="c9abbcffdcca49c4bfab2480d254dc2e"></p><p><img src="/../imgs/java05/571b3c3687924d6faccde3f349f3aa7b.jpeg" alt="571b3c3687924d6faccde3f349f3aa7b"></p><p>有参：右键–source–generate constructor using Field–点击generated</p><p><img src="/../imgs/java05/e256cd0683c14eb5a461760bd4e3c676.jpeg" alt="e256cd0683c14eb5a461760bd4e3c676"></p><p><img src="/../imgs/java05/7c31ff39c6ce45d494c55c98dd521822.jpeg" alt="7c31ff39c6ce45d494c55c98dd521822"></p><p>一般实体类的属性都是私有化的，提供公有的方法进行访问，方法快速构建如下：</p><p>快速构建get和set：空白处–右键–source–generated getter and setter–选择让外部类访问的属性–点击generated</p><p><img src="/../imgs/java05/e256cd0683c14eb5a461760bd4e3c676-16619546427245.jpeg" alt="e256cd0683c14eb5a461760bd4e3c676"></p><p><img src="/../imgs/java05/571b3c3687924d6faccde3f349f3aa7b-16619546633807.jpeg" alt="571b3c3687924d6faccde3f349f3aa7b"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>java基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>java04 java方法/函数封装</title>
+    <link href="/2022/08/31/java04/"/>
+    <url>/2022/08/31/java04/</url>
+    
+    <content type="html"><![CDATA[<p>方法&#x2F;函数的封装格式：</p><p>概念：方法可以把相对独立的某个功能抽象出来，使之成为程序中的一个独立实体，可以在同一程序或其他程序中多次重复使用</p><p>类型：1、无参无返回值</p><span id="more"></span><p>有参无返回值<br>有参有返回<br>无参有返回值</p><p>修饰符 返回值 方法名（参数的类型 参数的变量名）{</p><p>方法体</p><p>}</p><p>修饰符：public 修饰，一般方法都是用public</p><p>返回值：可以是基础数据类型或者复合数据类型，如果没有返回值用void表示</p><p> 如果有 方法体中结束的时候用return返回对应内容</p><p>参数：可以有或者没有，如果有，格式为（参数类型 参数的变量名）</p><p>使用main调用，main方法对应类里面的方法的时候，只能调用也有static修饰的方法</p><p>调用：</p><p>在同一个类里面调用方法</p><p>gameHllo()等同与 这个类 this.gameHello()</p><p>如果调用其他类里面的方法</p><p>先实例化这个类</p><p>类的变量名.方法名</p><p>package com.yunshen.home;</p><p>public class HomeUtil {</p><pre><code class="hljs">//第一题public void showLove(int item) &#123;//item为形参    for (int i = 0; i &lt; item; i++) &#123;        System.out.println(&quot;云神&quot;);    &#125;&#125;//第二题public void ps(String str) &#123;//形参，只有在后面的括号中可以使用,在调用方法的时候，传入的是实参        System.out.println(str);    &#125;</code></pre><p>​<br>    &#x2F;&#x2F;第三题<br>    public void showIntArr(int [] arr) {<br>        System.out.print(“arr中的值”);<br>        for (int i &#x3D; 0; i &lt; arr.length; i++) {<br>            System.out.print(arr[i] + “ “);<br>        }<br>    }</p><pre><code class="hljs">//第四题public void showCharArr2(char[][] chr) &#123;    // TODO Auto-generated method stub        for (int i = 0; i &lt; chr.length; i++) &#123;        for (int j = 0; j &lt; chr.length; j++) &#123;            System.out.print(chr[i][j] + &quot; &quot;);        &#125;        System.out.println();    &#125;&#125;</code></pre><p>​<br>​<br>​<br>    &#x2F;&#x2F;第7题<br>    public int findMax(int[] arr) {<br>        &#x2F;&#x2F; TODO Auto-generated method stub</p><pre><code class="hljs">    int max = 0;    for (int i = 0; i &lt; arr.length; i++) &#123;        if (arr[i] &gt; max) &#123;            max = arr[i];        &#125;    &#125;    return max;    &#125;</code></pre><p>​<br>    &#x2F;&#x2F;第9题<br>    public int[] addNum(int num, int[] arr) {<br>        &#x2F;&#x2F; TODO Auto-generated method stub</p><pre><code class="hljs">    //获取新数组    int [] newArr = new int [arr.length + 1];    for (int i = 0; i &lt; arr.length; i++) &#123;        newArr[i] = arr[i];//把旧数组放到新数组    &#125;    newArr[newArr.length - 1] = num;//newArr.length - 1是数组的最后一位数    return newArr;&#125;package com.yunshen.home;</code></pre><p>import java.util.Scanner;</p><p>&#x2F;*</p><p> * </p><ul><li>在main方法中根据键盘插入一个1-3000之间的数字n，另外写一个方法showLove，传入这个n，循环n次“云神”</li><li> *&#x2F;</li></ul><p>public class Home1 {<br>    public static void main(String[] args) {</p><pre><code class="hljs">    Scanner scanner = new Scanner(System.in);    System.out.println(&quot;输入一个1-3000之间的数字&quot;);    int num = scanner.nextInt();    if (num &gt; 0 &amp;&amp; num &lt;3000) &#123;        /*        for (int i = 0; i &lt; num; i++) &#123;            System.out.println(&quot;云神&quot;);        &#125;        */                //实例化工具    HomeUtil hu = new HomeUtil();    hu.showLove(num);        &#125;else &#123;        System.out.println(&quot;输入有误&quot;);    &#125;</code></pre><p>​<br>​<br>​<br>​<br>    }</p><p>}<br>    package com.yunshen.home;</p><p>import java.util.Scanner;<br>&#x2F;*</p><p> * </p><ul><li>在main方法中定义一个字符串，另外写一个方法ps，传入这个字符串，此方法专门负责将传入的字符串打印出来</li><li> *&#x2F;</li></ul><p>public class Home2 {</p><pre><code class="hljs">public static void main(String[] args) &#123;     String str = &quot;我是个字符串&quot;;     // 实例化工具    HomeUtil hu = new HomeUtil();    hu.ps(str); &#125;</code></pre><p>}<br>    package com.yunshen.home;</p><p>&#x2F;*</p><p> * </p><ul><li>在main方法中定义一个数组，写一个方法showInterArr,专门用来遍历int类型的一维数组</li><li> *&#x2F;</li></ul><p>public class Home3 {<br>    public static void main(String[] args) {</p><pre><code class="hljs">    int [] arr = &#123;1,22,333,44,5&#125;;    HomeUtil hu = new HomeUtil();    hu.showIntArr(arr);</code></pre><p>​<br>    }</p><p>}</p><pre><code class="hljs">package com.yunshen.home;</code></pre><p>&#x2F;*</p><p> * </p><ul><li>写一个方法showCharArr2,专门用来遍历char类型的二维数组</li><li> *&#x2F;<br>public class Home4 {<br>public static void main(String[] args) {<pre><code class="hljs">char [][] chr = &#123;        &#123;&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;&#125;,        &#123;&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;&#125;,        &#123;&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;&#125;,        &#123;&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;&#125;,        &#123;&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;,&#39;0&#39;&#125;&#125;;HomeUtil hu = new HomeUtil();hu.showCharArr2(chr);</code></pre>​<br>}</li></ul><p>}<br>    package com.yunshen.home;<br>&#x2F;*</p><p> * </p><ul><li>7.在main方法中有一个int类型的一维数组，写一个方法findMax,用于获取数组中的最大值，调用方法之后将返回的最大值赋值给一个变量a，把a打印出来</li><li>*&#x2F;</li></ul><p>public class Home5 {<br>    public static void main(String[] args) {</p><pre><code class="hljs">    int [] arr = &#123;1,-43,23,345,34&#125;;</code></pre><p>​<br>        HomeUtil hu &#x3D; new HomeUtil();<br>        int a &#x3D; hu.findMax(arr);<br>        System.out.println(a);</p><pre><code class="hljs">&#125;</code></pre><p>}<br>    package com.yunshen.home;</p><p>import java.util.Scanner;</p><p>&#x2F;*</p><p> * </p><ul><li>9.在main方法中定义一个int类型的一维数组，根据键盘输入一个数字，写一个方法addNum，传入这个数字和数组，把这个</li><li>数字加到这个数组的末尾，之后在main方法中调用addNum的方法把返回的数组赋值给原来的数组，并遍历原来的数组</li><li></li><li> *&#x2F;<br> public class Home9 {<br> public static void main(String[] args) {<pre><code class="hljs"> int [] arr = &#123;1,22,33,44,555,6&#125;; Scanner scanner = new Scanner(System.in); System.out.println(&quot;输入一个数字:&quot;);  HomeUtil hu = new HomeUtil(); int num = scanner.nextInt();  arr = hu.addNum(num,arr); for (int i = 0; i &lt; arr.length; i++) &#123;         System.out.print(arr[i] + &quot; &quot;);     &#125;</code></pre> }</li></ul><p>}</p><p>}</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>java基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>java03 求一个数组的最大值</title>
+    <link href="/2022/08/31/java03/"/>
+    <url>/2022/08/31/java03/</url>
+    
+    <content type="html"><![CDATA[<p>package com.yunshen.demo;</p><p>public class Test2 {<br>    public static void main(String[] args) {</p><pre><code class="hljs">    //静态初始化    int [] array = &#123;1,2,3,4,5,6,7,8,9,10&#125;;</code></pre><p>​<br>​        &#x2F;&#x2F;遍历数组<br>​        for (int i &#x3D; 0; i &lt; array.length; i++) {<br>​            System.out.println(array[i] + “ “);<br>​        }<br>​<br>​        &#x2F;&#x2F;求和<br>​        int sum &#x3D; 0;<br>​        for (int i &#x3D; 0; i &lt; array.length; i++) {<br>​            sum &#x3D; array[i] + sum;&#x2F;&#x2F;sum +&#x3D; array[i];<br>​        }<br>​        System.out.println(“和为：” +sum);<br>​        </p><pre><code class="hljs">    System.out.println(&quot;-----------&quot;);        //求数组的最大值    int [] array2 = &#123;-10,-5,2,20,5,100,13,14,10&#125;;    int max = array2[0];//假设第一个值是最大的，然后逐一往后比    for (int i = 0; i &lt; array2.length; i++) &#123;                if (max &lt; array2[i]) &#123;            max = array2[i];        &#125;    &#125;    System.out.println(max);</code></pre><p>​<br>​    }</p><p>}</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>java基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>java02 输出一个九九乘法表</title>
+    <link href="/2022/08/31/java02/"/>
+    <url>/2022/08/31/java02/</url>
+    
+    <content type="html"><![CDATA[<p>package com.yunshen.home;</p><p>public class Shape1 {<br>    public static void main(String[] args) {</p><pre><code class="hljs">    for (int i = 1; i &lt; 10; i++) &#123;        for (int j = 1; j &lt; i+1; j++) &#123;            System.out.print(i + &quot;*&quot; +j + &quot;=&quot; + i * j + &quot; &quot;);        &#125;        System.out.println(&quot; &quot;);    &#125;&#125;</code></pre><p>}</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>java基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>java01 random随机数</title>
+    <link href="/2022/08/31/java01/"/>
+    <url>/2022/08/31/java01/</url>
+    
+    <content type="html"><![CDATA[<p>如果要生成一个0-9之间的随机数:</p><p>Random ran &#x3D; new Random(); &#x2F;&#x2F;先实例化random对象</p><p>int num &#x3D; ran.nextInt(10); &#x2F;&#x2F;括号里面是范围，范围在0-9</p><p>System.out.println(num);</p><p>如果要生成一个1-10之间的随机数:</p><p>Random ran &#x3D; new Random(); &#x2F;&#x2F;先实例化random对象</p><p>int num2 &#x3D; ran.nextInt(10)+1; &#x2F;&#x2F;范围在1-10</p><p>System.out.println(num2)</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>java基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2022/08/31/hello-world/"/>
+    <url>/2022/08/31/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
