@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>java10   面向对象1</title>
+    <link href="/2022/09/11/java%E5%9F%BA%E7%A1%80/java10/"/>
+    <url>/2022/09/11/java%E5%9F%BA%E7%A1%80/java10/</url>
+    
+    <content type="html"><![CDATA[<p>面向过程执行：从上往下执行，用什么写什么，这些代码很长，而且效率不高，有很多重复的代码<br>解决方案：一些常用的过程能不能封装起来直接调用，不要一直重复写，这就是方法&#x2F;函数的封装</p><span id="more"></span><p>方法&#x2F;函数的封装格式：<br>概念：方法可以把相对独立的某个功能抽象出来，使之成为程序中的一个独立实体，可以在同一程序或其他程序中多次重复使用<br>类型：1、无参无返回值<br>2、有参无返回值<br>3、有参有返回<br>4、无参有返回值<br>&#x2F;&#x2F;无参无返回值<br>    public void sayHello() {<br>        System.out.println(“word”);<br>    }</p><pre><code class="hljs">//无参有返回值public String sayHello2() &#123;    return &quot;word&quot;;//只要返回值是string类型就可以&#125;//有参无返回值public void sayHello3(String name) &#123;    System.out.println(name + &quot;say world&quot;);&#125;//有参有返回值public String sayHello4(String name) &#123;    return name + &quot;say world&quot;;&#125;</code></pre><p>修饰符 返回值 方法名（参数的类型 参数的变量名）{<br>            方法体<br>}<br>修饰符：public 修饰的内容整个工程都能用，一般方法都是用public<br>返回值：可以是基础数据类型或者复合数据类型，如果没有返回值用void表示<br>         如果有 方法体中结束的时候用return返回对应内容<br>参数：可以有或者没有，如果有，格式为（参数类型 参数的变量名）</p><p>使用main调用，main方法对应类里面的方法的时候，只能调用也有static修饰的方法</p><p>调用：<br>在同一个类里面调用方法<br>gameHllo()等同与 这个类 this.gameHello()<br>如果调用其他类里面的方法<br>先实例化这个类<br>类的变量名.方法名<br>HitUtil hitUtil &#x3D; new HitUtil();<br>hitUtil.gameHello();</p><p>面向对象<br>1.隐藏细节<br>2.可重用<br>3.创建和使用</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>java基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>java09 集合框架</title>
     <link href="/2022/09/10/java%E5%9F%BA%E7%A1%80/java09/"/>
     <url>/2022/09/10/java%E5%9F%BA%E7%A1%80/java09/</url>
